@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '488339a3e11bdd4a895e1f87ba42aa20aaa695c7',
+        'reference' => '18cc1979b0abb31b187012ff51825b8e4fb1eeca',
         'name' => 'klsheng/myinvois-php-sdk',
         'dev' => true,
     ),
@@ -43,7 +43,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '488339a3e11bdd4a895e1f87ba42aa20aaa695c7',
+            'reference' => '18cc1979b0abb31b187012ff51825b8e4fb1eeca',
             'dev_requirement' => false,
         ),
         'paragonie/random_compat' => array(
