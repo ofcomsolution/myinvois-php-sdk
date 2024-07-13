@@ -1,5 +1,5 @@
 {
-    "name": "klsheng/myinvois-php-sdk",
+    "name": "ofcomsolution/myinvois-php-sdk",
     "description": "MyInvois SDK for PHP",
     "keywords": [
         "php",
@@ -8,7 +8,7 @@
         "irbm",
         "malaysia"
     ],
-    "homepage": "https://github.com/klsheng/myinvois-php-sdk",
+    "homepage": "https://github.com/ofcomsolution/myinvois-php-sdk",
     "license": "MIT",
     "authors": [
          {
