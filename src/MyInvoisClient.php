@@ -381,6 +381,7 @@ class MyInvoisClient
     protected function handleError(Exception $e)
     {
         $body = $e->getResponse()->getBody();
+        $body = json_encode($e);
         $errorCode = $e->getResponse()->getStatusCode();
 
         throw new Exception($body, $errorCode);
