@@ -7,8 +7,8 @@ use Klsheng\Myinvois\Service\AbstractService;
 
 class DocumentSubmissionService extends AbstractService
 {
-    public const SANDBOX_API_BASE_URL = 'https://preprod-api.myinvois.hasil.gov.my/api/v1.0/documentsubmissions';
-    public const PROD_API_BASE_URL = 'https://api.myinvois.hasil.gov.my/api/v1.0/documentsubmissions';
+    const SANDBOX_API_BASE_URL = 'https://preprod-api.myinvois.hasil.gov.my/api/v1.0/documentsubmissions';
+    const PROD_API_BASE_URL = 'https://api.myinvois.hasil.gov.my/api/v1.0/documentsubmissions';
 
     /**
      * DocumentSubmissionService constructor.

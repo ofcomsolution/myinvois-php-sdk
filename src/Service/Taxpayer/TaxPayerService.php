@@ -7,8 +7,8 @@ use Klsheng\Myinvois\Service\AbstractService;
 
 class TaxPayerService extends AbstractService
 {
-    public const SANDBOX_API_BASE_URL = 'https://preprod-api.myinvois.hasil.gov.my/api/v1.0/taxpayer';
-    public const PROD_API_BASE_URL = 'https://api.myinvois.hasil.gov.my/api/v1.0/taxpayer';
+    const SANDBOX_API_BASE_URL = 'https://preprod-api.myinvois.hasil.gov.my/api/v1.0/taxpayer';
+    const PROD_API_BASE_URL = 'https://api.myinvois.hasil.gov.my/api/v1.0/taxpayer';
 
     /**
      * TaxPayerService constructor.

@@ -8,11 +8,11 @@ use Klsheng\Myinvois\Service\AbstractService;
 
 class DocumentService extends AbstractService
 {
-    public const SANDBOX_API_BASE_URL = 'https://preprod-api.myinvois.hasil.gov.my/api/v1.0/documents';
-    public const PROD_API_BASE_URL = 'https://api.myinvois.hasil.gov.my/api/v1.0/documents';
+    const SANDBOX_API_BASE_URL = 'https://preprod-api.myinvois.hasil.gov.my/api/v1.0/documents';
+    const PROD_API_BASE_URL = 'https://api.myinvois.hasil.gov.my/api/v1.0/documents';
 
-    private const STATE_CANCELLED = 'cancelled';
-    private const STATE_REJECTED = 'rejected';
+    const STATE_CANCELLED = 'cancelled';
+    const STATE_REJECTED = 'rejected';
 
     /**
      * DocumentService constructor.

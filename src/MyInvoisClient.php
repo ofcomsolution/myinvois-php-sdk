@@ -4,10 +4,9 @@ namespace Klsheng\Myinvois;
 
 use Exception;
 use BadMethodCallException;
-use Psr\Http\Client\ClientInterface;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\BadResponseException;
-use Guzzle\Http\Message\Response;
 use Klsheng\Myinvois\Service\Identity\IdentityService;
 use Klsheng\Myinvois\Service\Document\DocumentService;
 use Klsheng\Myinvois\Service\Document\DocumentTypeService;
@@ -17,8 +16,8 @@ use Klsheng\Myinvois\Service\Taxpayer\TaxPayerService;
 
 class MyInvoisClient
 {
-    private const SANDBOX_PORTAL_BASE_URL = 'https://preprod.myinvois.hasil.gov.my';
-    private const PROD_PORTAL_BASE_URL = 'https://myinvois.hasil.gov.my';
+    const SANDBOX_PORTAL_BASE_URL = 'https://preprod.myinvois.hasil.gov.my';
+    const PROD_PORTAL_BASE_URL = 'https://myinvois.hasil.gov.my';
 
     /**
      * Client Id for MyInvois API
@@ -57,43 +56,31 @@ class MyInvoisClient
 
     /**
      * IdentityService object
-     *
-     * @var \Klsheng\Myinvois\Identity\IdentityService
      */
     private $identityService;
 
     /**
      * DocumentService object
-     *
-     * @var \Klsheng\Myinvois\Document\DocumentService
      */
     private $documentService;
 
     /**
      * DocumentTypeService object
-     *
-     * @var \Klsheng\Myinvois\Document\DocumentTypeService
      */
     private $documentTypeService;
 
     /**
      * DocumentSubmissionService object
-     *
-     * @var \Klsheng\Myinvois\Document\DocumentSubmissionService
      */
     private $documentSubmissionService;
 
     /**
      * NotificationService object
-     *
-     * @var \Klsheng\Myinvois\Notification\NotificationService
      */
     private $notificationService;
 
     /**
      * TaxPayerService object
-     *
-     * @var \Klsheng\Myinvois\Taxpayer\TaxPayerService
      */
     private $taxPayerService;
 
@@ -183,7 +170,7 @@ class MyInvoisClient
      *
      * @return array
      */
-    public function setOptions(array $options): array
+    public function setOptions(array $options)
     {
         return $this->options = $options;
     }
@@ -204,7 +191,7 @@ class MyInvoisClient
     /**
      * @return array
      */
-    public function getOptions(): array
+    public function getOptions()
     {
         return $this->options;
     }
@@ -275,7 +262,6 @@ class MyInvoisClient
     }
 
     /**
-     * @return \Klsheng\Myinvois\Identity\IdentityService
      */
     private function getIdentityService()
     {
@@ -289,7 +275,6 @@ class MyInvoisClient
     }
 
     /**
-     * @return \Klsheng\Myinvois\Document\DocumentService
      */
     private function getDocumentService()
     {
@@ -303,7 +288,6 @@ class MyInvoisClient
     }
 
     /**
-     * @return \Klsheng\Myinvois\Document\DocumentTypeService
      */
     private function getDocumentTypeService()
     {
@@ -317,7 +301,6 @@ class MyInvoisClient
     }
 
     /**
-     * @return \Klsheng\Myinvois\Document\DocumentSubmissionService
      */
     private function getDocumentSubmissionService()
     {
@@ -331,7 +314,6 @@ class MyInvoisClient
     }
 
     /**
-     * @return \Klsheng\Myinvois\Notification\NotificationService
      */
     private function getNotificationService()
     {
@@ -345,7 +327,6 @@ class MyInvoisClient
     }
 
     /**
-     * @return \Klsheng\Myinvois\Taxpayer\TaxPayerService
      */
     private function getTaxPayerService()
     {
@@ -365,9 +346,9 @@ class MyInvoisClient
      * @param $url
      * @param array $options
      *
-     * @throws PHP Exception
-     *
      * @return mixed
+     *@throws BadResponseException|\GuzzleHttp\Exception\GuzzleException
+     *
      */
     public function request($method, $url, array $options = [])
     {
@@ -389,7 +370,6 @@ class MyInvoisClient
      *
      * @param BadResponseException $exception
      *
-     * @throws PHP Exception
      *
      */
     protected function handleError(Exception $e)

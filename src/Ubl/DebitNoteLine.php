@@ -2,6 +2,8 @@
 
 namespace Klsheng\Myinvois\Ubl;
 
+use Klsheng\Myinvois\Ubl\Constant\UblAttributes;
+
 class DebitNoteLine extends InvoiceLine
 {
     public $xmlTagName = 'InvoiceLine'; //'DebitNoteLine'; // MyInvois System re-use back same tag name

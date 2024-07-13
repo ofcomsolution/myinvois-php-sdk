@@ -29,7 +29,7 @@ class AddressLine implements ISerializable, IValidator
     /**
      * validate function
      *
-     * @throws InvalidArgumentException An error with information about required data that is missing
+     * @throws \InvalidArgumentException An error with information about required data that is missing
      */
     public function validate()
     {
@@ -41,7 +41,7 @@ class AddressLine implements ISerializable, IValidator
      * @param Writer $writer
      * @return void
      */
-    public function xmlSerialize(Writer $writer): void
+    public function xmlSerialize(Writer $writer)
     {
         $this->validate();
 

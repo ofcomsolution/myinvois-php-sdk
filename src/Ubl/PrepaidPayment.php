@@ -94,7 +94,7 @@ class PrepaidPayment implements ISerializable, IValidator
      * @param Writer $writer
      * @return void
      */
-    public function xmlSerialize(Writer $writer): void
+    public function xmlSerialize(Writer $writer)
     {
         $this->validate();
 

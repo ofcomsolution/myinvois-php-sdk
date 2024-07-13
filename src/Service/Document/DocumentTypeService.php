@@ -7,8 +7,8 @@ use Klsheng\Myinvois\Service\AbstractService;
 
 class DocumentTypeService extends AbstractService
 {
-    public const SANDBOX_API_BASE_URL = 'https://preprod-api.myinvois.hasil.gov.my/api/v1.0/documenttypes';
-    public const PROD_API_BASE_URL = 'https://api.myinvois.hasil.gov.my/api/v1.0/documenttypes';
+    const SANDBOX_API_BASE_URL = 'https://preprod-api.myinvois.hasil.gov.my/api/v1.0/documenttypes';
+    const PROD_API_BASE_URL = 'https://api.myinvois.hasil.gov.my/api/v1.0/documenttypes';
 
     /**
      * DocumentTypeService constructor.
