@@ -104,7 +104,13 @@ class MyInvoisClient
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->prodMode = $prodMode;
-        $this->setHttpClient($httpClient ?: new GuzzleClient());
+        $this->setHttpClient($httpClient ?: new GuzzleClient([
+			'curl' => [
+				CURLOPT_CERTINFO => true,
+				CURLOPT_VERBOSE => true,
+			],
+			'debug' => true,
+		]));
 
         $this->portalBaseUrl = ($prodMode) ? self::PROD_PORTAL_BASE_URL : self::SANDBOX_PORTAL_BASE_URL;
     }
