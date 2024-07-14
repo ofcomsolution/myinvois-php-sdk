@@ -8,7 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="343509f4-7e95-4f0f-9389-ae87478da375" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/MyInvoisClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyInvoisClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1720854556409</updated>
       <workItem from="1720854560659" duration="3171000" />
-      <workItem from="1720912273980" duration="128000" />
+      <workItem from="1720912273980" duration="1013000" />
     </task>
     <servers />
   </component>

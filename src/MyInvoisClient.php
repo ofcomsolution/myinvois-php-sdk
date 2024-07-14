@@ -105,11 +105,7 @@ class MyInvoisClient
         $this->clientSecret = $clientSecret;
         $this->prodMode = $prodMode;
         $this->setHttpClient($httpClient ?: new GuzzleClient([
-			'curl' => [
-				CURLOPT_CERTINFO => true,
-				CURLOPT_VERBOSE => true,
-			],
-			'debug' => true,
+			'verify' => false
 		]));
 
         $this->portalBaseUrl = ($prodMode) ? self::PROD_PORTAL_BASE_URL : self::SANDBOX_PORTAL_BASE_URL;
@@ -381,7 +377,6 @@ class MyInvoisClient
     protected function handleError(Exception $e)
     {
         $body = $e->getResponse()->getBody();
-        $body = json_encode($e);
         $errorCode = $e->getResponse()->getStatusCode();
 
         throw new Exception($body, $errorCode);
