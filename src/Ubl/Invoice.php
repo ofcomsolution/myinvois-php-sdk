@@ -18,7 +18,7 @@ class Invoice implements ISerializable, IValidator
     private $issueDateTime;
     protected $invoiceTypeCode = InvoiceTypeCodes::INVOICE;
     private $invoiceTypeCodeAttributes = [
-        UblAttributes::LIST_VERSION_ID => '1.0',
+        UblAttributes::LIST_VERSION_ID => '1.1',
     ];
     private $paymentTerms;
     private $accountingSupplierParty;

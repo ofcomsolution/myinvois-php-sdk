@@ -77,18 +77,26 @@ class CreateInvoice {
         $this->PostData        = $PostData;
     }
 
-    public function createXmlDocument ($DocumentID, $PostData ) {
+    public function createXmlDocument ($DocumentID, $PostData ,$CertificatePath,$PrivateKeyPath) {
         $this->preDocumentCreate( $DocumentID, $PostData );
         $document = $this->createDocument();
 
-        return ( new XmlDocumentBuilder() )->getDocument( $document );
+        $BuilderObject = new XmlDocumentBuilder();
+        $BuilderObject->setDocument($document);
+        $BuilderObject->createSignature($CertificatePath, $PrivateKeyPath);
+
+        return $BuilderObject->build();
     }
 
-    public function createJsonDocument ( $DocumentID, $PostData ) {
+    public function createJsonDocument ( $DocumentID, $PostData,$CertificatePath,$PrivateKeyPath ) {
         $this->preDocumentCreate( $DocumentID, $PostData );
         $document = $this->createDocument();
 
-        return ( new JsonDocumentBuilder() )->getDocument( $document );
+        $BuilderObject = new JsonDocumentBuilder();
+        $BuilderObject->setDocument($document);
+        $BuilderObject->createSignature($CertificatePath, $PrivateKeyPath);
+
+        return $BuilderObject->build();
     }
 
 

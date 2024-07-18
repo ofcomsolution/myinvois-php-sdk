@@ -129,7 +129,7 @@ abstract class AbstractDocumentBuilder implements IDocumentBuilder
     /**
      * @return Invoice
      */
-    public function getDocument()
+    protected function getDocument()
     {
         if($this->document === null) {
             throw new InvalidArgumentException('Document is null');
