@@ -56,31 +56,43 @@ class MyInvoisClient
 
     /**
      * IdentityService object
+     *
+     * @var \Klsheng\Myinvois\Identity\IdentityService
      */
     private $identityService;
 
     /**
      * DocumentService object
+     *
+     * @var \Klsheng\Myinvois\Document\DocumentService
      */
     private $documentService;
 
     /**
      * DocumentTypeService object
+     *
+     * @var \Klsheng\Myinvois\Document\DocumentTypeService
      */
     private $documentTypeService;
 
     /**
      * DocumentSubmissionService object
+     *
+     * @var \Klsheng\Myinvois\Document\DocumentSubmissionService
      */
     private $documentSubmissionService;
 
     /**
      * NotificationService object
+     *
+     * @var \Klsheng\Myinvois\Notification\NotificationService
      */
     private $notificationService;
 
     /**
      * TaxPayerService object
+     *
+     * @var \Klsheng\Myinvois\Taxpayer\TaxPayerService
      */
     private $taxPayerService;
 
@@ -264,6 +276,7 @@ class MyInvoisClient
     }
 
     /**
+     * @return \Klsheng\Myinvois\Identity\IdentityService
      */
     private function getIdentityService()
     {
@@ -277,6 +290,7 @@ class MyInvoisClient
     }
 
     /**
+     * @return \Klsheng\Myinvois\Document\DocumentService
      */
     private function getDocumentService()
     {
@@ -290,6 +304,7 @@ class MyInvoisClient
     }
 
     /**
+     * @return \Klsheng\Myinvois\Document\DocumentTypeService
      */
     private function getDocumentTypeService()
     {
@@ -303,6 +318,7 @@ class MyInvoisClient
     }
 
     /**
+     * @return \Klsheng\Myinvois\Document\DocumentSubmissionService
      */
     private function getDocumentSubmissionService()
     {
@@ -316,6 +332,7 @@ class MyInvoisClient
     }
 
     /**
+     * @return \Klsheng\Myinvois\Notification\NotificationService
      */
     private function getNotificationService()
     {
@@ -329,6 +346,7 @@ class MyInvoisClient
     }
 
     /**
+     * @return \Klsheng\Myinvois\Taxpayer\TaxPayerService
      */
     private function getTaxPayerService()
     {
@@ -348,9 +366,9 @@ class MyInvoisClient
      * @param $url
      * @param array $options
      *
-     * @return mixed
-     *@throws BadResponseException|\GuzzleHttp\Exception\GuzzleException
+     * @throws BadResponseException|\GuzzleHttp\Exception\GuzzleException
      *
+     * @return mixed
      */
     public function request($method, $url, array $options = [])
     {
@@ -372,6 +390,7 @@ class MyInvoisClient
      *
      * @param BadResponseException $exception
      *
+     * @throws BadResponseException|\GuzzleHttp\Exception\GuzzleException
      *
      */
     protected function handleError(Exception $e)

@@ -22,9 +22,10 @@
         "guzzlehttp/guzzle": "6.5.8",
         "ext-curl": "*",
         "ext-json": "*",
-        "sabre/xml": "1.5.1",
+        "ext-openssl": "*",
         "ext-fileinfo": "*",
-        "ext-apcu": "*"
+        "ext-apcu": "*",
+        "sabre/xml": "1.5.1"
     },
     "autoload": {
         "psr-4": {
