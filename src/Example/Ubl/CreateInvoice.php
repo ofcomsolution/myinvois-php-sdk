@@ -153,7 +153,7 @@ class CreateInvoice {
         $supplier->addPartyIdentification($partyIdentification);
 
         $partyIdentification = new PartyIdentification();
-        $partyIdentification->setId($AccountingSupplierParty['PartyIdentification'], 'BRN');
+        $partyIdentification->setId($AccountingSupplierParty['PartyIdentification'], $AccountingSupplierParty['BusinessType']);
         $supplier->addPartyIdentification($partyIdentification);
 
         $supplier->setPostalAddress($address);
@@ -212,7 +212,7 @@ class CreateInvoice {
         $customer->addPartyIdentification($partyIdentification);
 
         $partyIdentification = new PartyIdentification();
-        $partyIdentification->setId($AccountingCustomerParty['PartyIdentification'], 'BRN');
+        $partyIdentification->setId($AccountingCustomerParty['PartyIdentification'], $AccountingCustomerParty['BusinessType']);
         $customer->addPartyIdentification($partyIdentification);
 
         $customer->setPostalAddress($address);

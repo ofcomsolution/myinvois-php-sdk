@@ -18,9 +18,9 @@ use Klsheng\Myinvois\Ubl\Contact;
 use Klsheng\Myinvois\Ubl\AccountingParty;
 use Klsheng\Myinvois\Ubl\Party;
 use Klsheng\Myinvois\Ubl\PartyIdentification;
-//use Klsheng\Myinvois\Ubl\AllowanceCharge;
-//use Klsheng\Myinvois\Ubl\Shipment;
-//use Klsheng\Myinvois\Ubl\Delivery;
+use Klsheng\Myinvois\Ubl\AllowanceCharge;
+use Klsheng\Myinvois\Ubl\Shipment;
+use Klsheng\Myinvois\Ubl\Delivery;
 use Klsheng\Myinvois\Ubl\TaxTotal;
 use Klsheng\Myinvois\Ubl\TaxScheme;
 use Klsheng\Myinvois\Ubl\TaxCategory;
@@ -30,32 +30,32 @@ use Klsheng\Myinvois\Ubl\CommodityClassification;
 use Klsheng\Myinvois\Ubl\Price;
 use Klsheng\Myinvois\Ubl\ItemPriceExtension;
 use Klsheng\Myinvois\Ubl\InvoiceLine;
-//use Klsheng\Myinvois\Ubl\CreditNoteLine;
-//use Klsheng\Myinvois\Ubl\DebitNoteLine;
-//use Klsheng\Myinvois\Ubl\AdditionalDocumentReference;
+use Klsheng\Myinvois\Ubl\CreditNoteLine;
+use Klsheng\Myinvois\Ubl\DebitNoteLine;
+use Klsheng\Myinvois\Ubl\AdditionalDocumentReference;
 use Klsheng\Myinvois\Ubl\LegalMonetaryTotal;
 use Klsheng\Myinvois\Ubl\InvoicePeriod;
-//use Klsheng\Myinvois\Ubl\PayeeFinancialAccount;
-//use Klsheng\Myinvois\Ubl\PaymentMeans;
-//use Klsheng\Myinvois\Ubl\PaymentTerms;
-//use Klsheng\Myinvois\Ubl\BillingReference;
-//use Klsheng\Myinvois\Ubl\PrepaidPayment;
-//use Klsheng\Myinvois\Ubl\TaxExchangeRate;
-//use Klsheng\Myinvois\Ubl\InvoiceDocumentReference;
-//use Klsheng\Myinvois\Ubl\Extension\UBLExtensions;
-//use Klsheng\Myinvois\Ubl\Extension\UBLExtensionItem;
-//use Klsheng\Myinvois\Ubl\Extension\UBLDocumentSignatures;
-//use Klsheng\Myinvois\Ubl\Extension\SignatureInformation;
-//use Klsheng\Myinvois\Ubl\Extension\Signature;
-//use Klsheng\Myinvois\Ubl\Extension\SignInfo;
-//use Klsheng\Myinvois\Ubl\Extension\SignInfoReference;
-//use Klsheng\Myinvois\Ubl\Extension\SignInfoTransform;
-//use Klsheng\Myinvois\Ubl\Extension\KeyInfo;
-//use Klsheng\Myinvois\Ubl\Extension\KeyInfoX509Data;
-//use Klsheng\Myinvois\Ubl\Extension\SignatureObject;
-//use Klsheng\Myinvois\Ubl\Extension\QualifyingProperties;
-//use Klsheng\Myinvois\Ubl\Extension\SignedProperties;
-//use Klsheng\Myinvois\Ubl\Extension\SignedSignatureProperties;
+use Klsheng\Myinvois\Ubl\PayeeFinancialAccount;
+use Klsheng\Myinvois\Ubl\PaymentMeans;
+use Klsheng\Myinvois\Ubl\PaymentTerms;
+use Klsheng\Myinvois\Ubl\BillingReference;
+use Klsheng\Myinvois\Ubl\PrepaidPayment;
+use Klsheng\Myinvois\Ubl\TaxExchangeRate;
+use Klsheng\Myinvois\Ubl\InvoiceDocumentReference;
+use Klsheng\Myinvois\Ubl\Extension\UBLExtensions;
+use Klsheng\Myinvois\Ubl\Extension\UBLExtensionItem;
+use Klsheng\Myinvois\Ubl\Extension\UBLDocumentSignatures;
+use Klsheng\Myinvois\Ubl\Extension\SignatureInformation;
+use Klsheng\Myinvois\Ubl\Extension\Signature;
+use Klsheng\Myinvois\Ubl\Extension\SignInfo;
+use Klsheng\Myinvois\Ubl\Extension\SignInfoReference;
+use Klsheng\Myinvois\Ubl\Extension\SignInfoTransform;
+use Klsheng\Myinvois\Ubl\Extension\KeyInfo;
+use Klsheng\Myinvois\Ubl\Extension\KeyInfoX509Data;
+use Klsheng\Myinvois\Ubl\Extension\SignatureObject;
+use Klsheng\Myinvois\Ubl\Extension\QualifyingProperties;
+use Klsheng\Myinvois\Ubl\Extension\SignedProperties;
+use Klsheng\Myinvois\Ubl\Extension\SignedSignatureProperties;
 use Klsheng\Myinvois\Ubl\Builder\XmlDocumentBuilder;
 use Klsheng\Myinvois\Ubl\Builder\JsonDocumentBuilder;
 use Klsheng\Myinvois\Ubl\Constant\MSICCodes;
@@ -93,7 +93,7 @@ class CreateSelfBilledInvoice {
 
 
     private function createDocument () {
-        $document = new Invoice();
+        $document = new SelfBilledInvoice();
 
         $document->setId( $this->DocumentID );
         $document = $this->setIssueDateTime($document);
@@ -153,7 +153,7 @@ class CreateSelfBilledInvoice {
         $supplier->addPartyIdentification($partyIdentification);
 
         $partyIdentification = new PartyIdentification();
-        $partyIdentification->setId($AccountingSupplierParty['PartyIdentification'], 'BRN');
+        $partyIdentification->setId($AccountingSupplierParty['PartyIdentification'], $AccountingSupplierParty['BusinessType']);
         $supplier->addPartyIdentification($partyIdentification);
 
         $supplier->setPostalAddress($address);
@@ -212,7 +212,7 @@ class CreateSelfBilledInvoice {
         $customer->addPartyIdentification($partyIdentification);
 
         $partyIdentification = new PartyIdentification();
-        $partyIdentification->setId($AccountingCustomerParty['PartyIdentification'], 'BRN');
+        $partyIdentification->setId($AccountingCustomerParty['PartyIdentification'], $AccountingCustomerParty['BusinessType']);
         $customer->addPartyIdentification($partyIdentification);
 
         $customer->setPostalAddress($address);
